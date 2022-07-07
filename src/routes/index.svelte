@@ -7,20 +7,30 @@
     let quoteID = [];
     let quoteText = [];
     
-    // use asynch/await to ensure that the data is received
+
     onMount(async () => {
-        const response = await fetch(api_url);
-        const data = await response.json();
-        quoteID = data.slip.id;
-        quoteText = data.slip.advice;
+        try{
+            const response = await fetch(api_url);
+            const data = await response.json();
+            console.log(data);
+            quoteID = data.slip.id;
+            quoteText = data.slip.advice;
+        } catch(err){
+            console.log(err)
+        }
     });
 
     async function getQuote(){
-        const response = await fetch(api_url);
-        const data = await response.json();
-        quoteID = data.slip.id;
-        quoteText = data.slip.advice;
+        try {
+            const response = await fetch(api_url);
+            const data = await response.json();
+            quoteID = data.slip.id;
+            quoteText = data.slip.advice;
+        } catch (err){
+            console.log(err)
+        }
     }
+
 
 
 </script>
@@ -94,9 +104,14 @@
         /* padding:0; */
         border: none;
         border-radius: 10px;
-        /* background-color: hsl(150, 100%, 66%); */
-        background-color: white;
+        background-color: hsl(150, 100%, 66%);
+        /* background-color: white; */
+        /* padding-top: 10px; */
+        position: absolute;
+        top: 15%;
+        right: 5%;
     }
+
     .attribution { font-size: 11px; text-align: center; }
     .attribution a { color: hsl(228, 45%, 44%); }
   </style>
