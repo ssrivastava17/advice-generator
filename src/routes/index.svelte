@@ -103,7 +103,7 @@
     button{
         /* padding:0; */
         border: none;
-        border-radius: 10px;
+        border-radius: 12px;
         background-color: hsl(150, 100%, 66%);
         /* background-color: white; */
         /* padding-top: 10px; */
